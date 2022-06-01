@@ -26,7 +26,7 @@ public aspect Logger {
     		
     		String fecha = String.valueOf(cal.get(Calendar.YEAR)) + "-" +  String.valueOf(cal.get(Calendar.MONTH)) + "-" + String.valueOf(cal.get(Calendar.DATE)) + " " +  String.valueOf(cal.get(Calendar.HOUR)) + ":" + String.valueOf(cal.get(Calendar.MINUTE));
     		fw.write(fecha + " Deposito Realizado." + "\n");
-    		System.out.println("**** Deposito Realizado ****");    		System.out.println("**** User created ****");
+    		System.out.println("**** Deposito Realizado ****");
     		fw.close();
     	}
     	catch(IOException E) {
