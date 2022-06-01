@@ -15,7 +15,7 @@ public aspect Logger {
     		
     		System.out.println("**** User created ****");
     
-    //Aspecto ejemplo: solo muestra este mensaje después de haber creado un usuario 
+    
     }
 
     
@@ -34,10 +34,27 @@ public aspect Logger {
     		E.printStackTrace();
     		
     	}
-    //Aspecto ejemplo: solo muestra este mensaje después de haber creado un usuario 
+   
     	
     }
     
-    
+    pointcut retiro() : call(* moneyWithdrawal*(..) );
+    after() : retiro() {
+    	try {
+    		FileWriter fw = new FileWriter("log.txt",true);
+    		
+    		String fecha = String.valueOf(cal.get(Calendar.YEAR)) + "-" +  String.valueOf(cal.get(Calendar.MONTH)) + "-" + String.valueOf(cal.get(Calendar.DATE)) + " " +  String.valueOf(cal.get(Calendar.HOUR)) + ":" + String.valueOf(cal.get(Calendar.MINUTE));
+    		fw.write(fecha + " Retiro Realizado." + "\n");
+    		System.out.println("**** Retiro Realizado ****");
+    		fw.close();
+    	}
+    	catch(IOException E) {
+    		System.out.println("Ha ocurrido un error escribiendo el archivo log");
+    		E.printStackTrace();
+    		
+    	}
+   
+    	
+    }
     
 }
