@@ -19,14 +19,14 @@ public aspect Logger {
     }
 
     
-    pointcut deposito() : call(* moneyMakeTransaction*(..) );
-    after() : deposito() {
+    pointcut transaccion() : call(* moneyMakeTransaction*(..) );
+    after() : transaccion() {
     	try {
     		FileWriter fw = new FileWriter("log.txt",true);
     		
     		String fecha = String.valueOf(cal.get(Calendar.YEAR)) + "-" +  String.valueOf(cal.get(Calendar.MONTH)) + "-" + String.valueOf(cal.get(Calendar.DATE)) + " " +  String.valueOf(cal.get(Calendar.HOUR)) + ":" + String.valueOf(cal.get(Calendar.MINUTE));
-    		fw.write(fecha + " Deposito Realizado." + "\n");
-    		System.out.println("**** Deposito Realizado ****");
+    		fw.write(fecha + " Transaccion Realizada." + "\n");
+    		System.out.println("**** Transaccion Realizada ****");
     		fw.close();
     	}
     	catch(IOException E) {

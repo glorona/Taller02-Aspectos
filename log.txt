@@ -3,3 +3,5 @@
 2022-5-1 11:20 Deposito Realizado.
 2022-5-1 6:31 Retiro Realizado.
 2022-5-1 6:39 Retiro Realizado.
+2022-5-1 7:54 Transaccion Realizada.
+2022-5-1 7:54 Retiro Realizado.
